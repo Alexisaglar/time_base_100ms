@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>time_base_100ms</name>
-	<comment />
+	<name>time_base_100ms_IT</name>
+	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -24,7 +24,4 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>fr.ac6.mcu.ide.core.MCUProjectNature</nature>
 	</natures>
-	<linkedResources>
-		
-	</linkedResources>
 </projectDescription>

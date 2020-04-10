@@ -32,20 +32,14 @@ int main(void)
 	TIMER3_Init();
 
 	//Lets start timer
-	HAL_TIM_Base_Start(&htimer3);
-
-	// Loop until the update event is set
-	while( ! TIM3->SR & TIM_SR_UIF);
-	//THe requiered time delay has been elapsed
-	//User code can be executed
-	TIM3->SR = 0;
-	HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
-
+	HAL_TIM_Base_Start_IT(&htimer3);
 
 	return 0;
 }
 
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+	HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
+}
 void SystemClockConfig()
 {
 

@@ -28,13 +28,13 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: time_base_100ms.elf
+all: time_base_100ms_IT.elf
 
 # Tool invocations
-time_base_100ms.elf: $(OBJS) $(USER_OBJS) ../STM32F401RETx_FLASH.ld
+time_base_100ms_IT.elf: $(OBJS) $(USER_OBJS) ../STM32F401RETx_FLASH.ld
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F401RETx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "time_base_100ms.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F401RETx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "time_base_100ms_IT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -46,8 +46,8 @@ clean:
 
 post-build:
 	-@echo 'Generating hex and Printing size information:'
-	arm-none-eabi-objcopy -O ihex "time_base_100ms.elf" "time_base_100ms.hex"
-	arm-none-eabi-size "time_base_100ms.elf"
+	arm-none-eabi-objcopy -O ihex "time_base_100ms_IT.elf" "time_base_100ms_IT.hex"
+	arm-none-eabi-size "time_base_100ms_IT.elf"
 	-@echo ' '
 
 .PHONY: all clean dependents
